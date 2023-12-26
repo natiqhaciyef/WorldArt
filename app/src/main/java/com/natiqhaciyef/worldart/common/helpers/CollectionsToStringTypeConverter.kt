@@ -1,4 +1,4 @@
-package com.natiqhaciyef.hiproid.common.util.helpers
+package com.natiqhaciyef.worldart.common.helpers
 
 
 fun main() {

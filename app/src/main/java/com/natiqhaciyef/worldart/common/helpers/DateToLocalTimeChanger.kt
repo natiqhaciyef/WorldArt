@@ -1,4 +1,4 @@
-package com.natiqhaciyef.hiproid.common.util.helpers
+package com.natiqhaciyef.worldart.common.helpers
 
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

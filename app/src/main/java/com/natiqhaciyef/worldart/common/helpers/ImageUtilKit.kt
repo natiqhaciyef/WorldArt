@@ -1,4 +1,4 @@
-package com.natiqhaciyef.hiproid.common.util.helpers
+package com.natiqhaciyef.worldart.common.helpers
 
 import android.content.Context
 import android.graphics.Canvas
@@ -10,12 +10,8 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
-import com.natiqhaciyef.hiproid.R
-import java.io.File
-import javax.sql.DataSource
+import com.natiqhaciyef.worldart.R
 
 fun ImageView.loadImage(
     uri: String,
