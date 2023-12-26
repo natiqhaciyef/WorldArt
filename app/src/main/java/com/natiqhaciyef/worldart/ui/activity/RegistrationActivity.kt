@@ -6,7 +6,7 @@ import com.natiqhaciyef.worldart.R
 import com.natiqhaciyef.worldart.ui.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
-//@AndroidEntryPoint
+@AndroidEntryPoint
 class RegistrationActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

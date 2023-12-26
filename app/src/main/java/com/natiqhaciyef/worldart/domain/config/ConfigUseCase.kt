@@ -1,6 +1,6 @@
-package com.natiqhaciyef.worldart.domain.usecase.config
+package com.natiqhaciyef.worldart.domain.config
 
-object BaseUseCase {
+object ConfigUseCase {
     const val LOADING_FAIL = "Loading failed"
     const val LOADING_SUCCESS = "Loading successfully finished"
 
@@ -17,5 +17,4 @@ object BaseUseCase {
 object FirebaseDirectories{
     const val PROFILE_DIRECTORY = "Profiles"
     const val USER_DIRECTORY = "User"
-    const val STORY_DIRECTORY = "Story"
 }
