@@ -6,10 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class HistoryModel(
-    @SerializedName("title")
     var title: String,
-    @SerializedName("details")
     var details: String,
-    @SerializedName("belongs")
     var belongs: String,
 ) : Parcelable

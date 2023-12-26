@@ -5,7 +5,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ArchitectureModel(
-    var id: Int,
     var title: String,
     var image: String,
     var info: String,
@@ -13,5 +12,4 @@ data class ArchitectureModel(
     var history: String?,
     var architect: ArtistModel?,
     var place: PlaceModel?,
-    var publishDate: String
 ) : Parcelable
