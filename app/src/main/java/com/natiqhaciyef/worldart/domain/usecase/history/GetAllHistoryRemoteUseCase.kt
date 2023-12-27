@@ -1,9 +1,9 @@
 package com.natiqhaciyef.worldart.domain.usecase.history
 
 import com.natiqhaciyef.worldart.common.classes.Resource
-import com.natiqhaciyef.worldart.domain.config.BaseUseCase
+import com.natiqhaciyef.worldart.domain.usecase.BaseUseCase
 import com.natiqhaciyef.worldart.domain.repository.HistoryRepository
-import com.natiqhaciyef.worldart.domain.config.ConfigUseCase
+import com.natiqhaciyef.worldart.domain.usecase.ConfigUseCase
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 

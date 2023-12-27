@@ -4,7 +4,7 @@ plugins {
     kotlin("kapt")
     id("androidx.navigation.safeargs")
     id("kotlin-parcelize")
-//    id("com.google.gms.google-services")
+    id("com.google.gms.google-services")
     id("dagger.hilt.android.plugin")
 }
 
@@ -65,8 +65,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:31.1.1"))
     implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
+//    implementation("com.google.firebase:firebase-storage-ktx")
 
     //Room db
     implementation("androidx.room:room-runtime:2.5.0")

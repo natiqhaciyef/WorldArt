@@ -3,7 +3,7 @@ package com.natiqhaciyef.worldart.domain.mapper
 import com.google.gson.Gson
 import com.natiqhaciyef.worldart.data.model.TravelModel
 import com.natiqhaciyef.worldart.data.model.io.TravelNetworkModel
-import com.natiqhaciyef.worldart.domain.result.UIResult
+import com.natiqhaciyef.worldart.domain.model.UIResult
 
 
 fun UIResult<TravelModel>.toNetworkModel(): TravelNetworkModel {

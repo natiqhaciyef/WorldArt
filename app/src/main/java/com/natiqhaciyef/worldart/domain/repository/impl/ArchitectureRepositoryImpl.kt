@@ -4,7 +4,7 @@ import com.natiqhaciyef.worldart.data.model.ArchitectureModel
 import com.natiqhaciyef.worldart.data.source.ArchitectureSource
 import com.natiqhaciyef.worldart.domain.mapper.toUIModel
 import com.natiqhaciyef.worldart.domain.repository.ArchitectureRepository
-import com.natiqhaciyef.worldart.domain.result.UIResult
+import com.natiqhaciyef.worldart.domain.model.UIResult
 
 class ArchitectureRepositoryImpl(
     private val ds: ArchitectureSource

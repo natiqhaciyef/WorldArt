@@ -3,7 +3,7 @@ package com.natiqhaciyef.worldart.domain.mapper
 import com.google.gson.Gson
 import com.natiqhaciyef.worldart.data.model.HistoryModel
 import com.natiqhaciyef.worldart.data.model.io.HistoryNetworkModel
-import com.natiqhaciyef.worldart.domain.result.UIResult
+import com.natiqhaciyef.worldart.domain.model.UIResult
 
 
 fun HistoryNetworkModel.toUIModel(): UIResult<HistoryModel> {

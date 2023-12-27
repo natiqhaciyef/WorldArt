@@ -1,16 +1,19 @@
 package com.natiqhaciyef.worldart.domain.di
 
 import com.natiqhaciyef.worldart.data.source.ArchitectureSource
+import com.natiqhaciyef.worldart.data.source.FirebaseSource
 import com.natiqhaciyef.worldart.data.source.HistorySource
 import com.natiqhaciyef.worldart.data.source.PaintingSource
 import com.natiqhaciyef.worldart.data.source.ScienceSource
 import com.natiqhaciyef.worldart.data.source.TravelSource
 import com.natiqhaciyef.worldart.domain.repository.ArchitectureRepository
+import com.natiqhaciyef.worldart.domain.repository.FirebaseRepository
 import com.natiqhaciyef.worldart.domain.repository.HistoryRepository
 import com.natiqhaciyef.worldart.domain.repository.PaintingRepository
 import com.natiqhaciyef.worldart.domain.repository.ScienceRepository
 import com.natiqhaciyef.worldart.domain.repository.TravelRepository
 import com.natiqhaciyef.worldart.domain.repository.impl.ArchitectureRepositoryImpl
+import com.natiqhaciyef.worldart.domain.repository.impl.FirebaseRepositoryImpl
 import com.natiqhaciyef.worldart.domain.repository.impl.HistoryRepositoryImpl
 import com.natiqhaciyef.worldart.domain.repository.impl.PaintingRepositoryImpl
 import com.natiqhaciyef.worldart.domain.repository.impl.ScienceRepositoryImpl
@@ -25,6 +28,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    // remote
     @Provides
     @Singleton
     fun provideArchitectureRepository(ds: ArchitectureSource) =
@@ -50,4 +54,10 @@ object AppModule {
     fun provideTravelRepository(ds: TravelSource) =
         TravelRepositoryImpl(ds) as TravelRepository
 
+
+    // firebase
+    @Provides
+    @Singleton
+    fun provideFirebaseRepository(ds: FirebaseSource) =
+        FirebaseRepositoryImpl(ds) as FirebaseRepository
 }

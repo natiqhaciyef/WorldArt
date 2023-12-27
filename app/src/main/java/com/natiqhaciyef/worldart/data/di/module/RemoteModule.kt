@@ -1,6 +1,6 @@
 package com.natiqhaciyef.worldart.data.di.module
 
-import com.natiqhaciyef.worldart.data.network.NetworkConfig
+import com.natiqhaciyef.worldart.data.network.config.NetworkConfig
 import com.natiqhaciyef.worldart.data.network.service.ArchService
 import com.natiqhaciyef.worldart.data.network.service.HistoryService
 import com.natiqhaciyef.worldart.data.network.service.PaintingService
@@ -15,7 +15,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton

@@ -1,4 +1,4 @@
-package com.natiqhaciyef.worldart.data.network
+package com.natiqhaciyef.worldart.data.network.config
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
