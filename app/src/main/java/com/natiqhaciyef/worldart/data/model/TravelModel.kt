@@ -1,14 +1,13 @@
 package com.natiqhaciyef.worldart.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class TravelModel(
-    @SerializedName("title")
     var title: String,
-    @SerializedName("info")
     var info: String,
-    @SerializedName("country")
     var country: String,
-    @SerializedName("city")
     var city: String
-)
+): Parcelable
