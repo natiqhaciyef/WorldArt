@@ -10,4 +10,10 @@
         android:name="com.natiqhaciyef.worldart.ui.fragment.registration.onboard.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" />
+    <include app:graph="@navigation/home_nav_graph" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.natiqhaciyef.worldart.ui.fragment.registration.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

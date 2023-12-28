@@ -1,0 +1,41 @@
+package com.natiqhaciyef.worldart.ui.fragment.registration.login
+
+import android.os.Build
+import android.os.Bundle
+import android.text.Html
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.natiqhaciyef.worldart.R
+import com.natiqhaciyef.worldart.databinding.FragmentLoginBinding
+import com.natiqhaciyef.worldart.ui.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
+import java.net.URLEncoder
+
+@AndroidEntryPoint
+class LoginFragment : BaseFragment() {
+    private lateinit var binding: FragmentLoginBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            binding.goToSignUp.text =
+                Html.fromHtml(
+                    getString(R.string.you_don_t_have_an_account),
+                    Html.FROM_HTML_MODE_COMPACT
+                )
+        } else {
+            binding.goToSignUp.text = Html.fromHtml(getString(R.string.you_don_t_have_an_account))
+        }
+    }
+}
