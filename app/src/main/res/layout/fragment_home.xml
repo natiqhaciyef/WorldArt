@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context=".ui.fragment.home.HomeFragment">
+
+
+    <View
+        android:id="@+id/headerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/home_header_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/greetingTitle"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:fontFamily="@font/lobster"
+        android:text="@string/hello_user"
+        android:textColor="@color/app_yellow"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/notificationIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="28dp"
+        android:src="@drawable/notifications_icon"
+
+        app:layout_constraintBottom_toBottomOf="@+id/greetingTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/greetingTitle"
+        app:tint="@color/app_yellow" />
+
+    <android.widget.SearchView
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/custom_search_background"
+        android:closeIcon="@drawable/close_icon"
+        android:iconifiedByDefault="false"
+        android:outlineAmbientShadowColor="#F4F4F4"
+        android:outlineSpotShadowColor="#E1E1E1"
+        android:padding="5dp"
+        android:queryBackground="@android:color/transparent"
+        android:searchIcon="@drawable/search_icon"
+        android:textColor="@color/black"
+        android:textColorHint="@color/app_gray"
+        android:textSize="18sp"
+        android:theme="@style/SearchViewStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/headerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerArtFields"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

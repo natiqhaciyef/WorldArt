@@ -15,5 +15,6 @@
     <string name="sign_up">Sign up</string>
     <string name="reset_password">Reset password</string>
     <string name="send">Send</string>
+    <string name="hello_user"><![CDATA[<font color=#FFFFFF>Hello, </font><font color=#EFC700>User</font>]]></string>
 
 </resources>

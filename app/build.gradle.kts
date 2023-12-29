@@ -46,11 +46,13 @@ android {
 }
 
 dependencies {
-    implementation("com.google.ar:core:1.30.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     val fragmentVersion = "1.5.2"
     val retrofitVersion = "2.9.0"
     val daggerVersion = "2.46"
+    val epoxyVersion = "5.1.3"
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("com.google.ar:core:1.30.0")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -60,6 +62,9 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    // Epoxy UI
+    implementation("com.airbnb.android:epoxy:$epoxyVersion")
+    annotationProcessor("com.airbnb.android:epoxy-processor:$epoxyVersion")
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:31.1.1"))

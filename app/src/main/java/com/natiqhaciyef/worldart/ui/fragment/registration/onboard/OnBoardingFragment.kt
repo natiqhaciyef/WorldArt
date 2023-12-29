@@ -31,8 +31,7 @@ class OnBoardingFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
-            delay(2300)
-//            && onboardingViewModel.isAuthStored()
+            delay(2500)
             if (onboardingViewModel.isAuth())
                 findNavController().navigate(R.id.home_nav_graph)
             else

@@ -12,12 +12,12 @@ class CheckUseByEmailFirestoreUseCase @Inject constructor(
 
     operator fun invoke(
         email: String,
-    ): Boolean {
-        val list = mutableListOf<MappedUserWithoutPassword>()
+        onSuccess: (Boolean) -> Unit = {},
+        onFail: (Exception?) -> Unit = {},
+    ) {
         getAllUsersWithoutPasswordFirestoreUseCase.invoke(
-            onSuccess = { iterator -> list.addAll(iterator) },
-            onFail = { }
+            onSuccess = { list -> onSuccess.invoke(list.map { it.email }.contains(email)) },
+            onFail = { exception -> onFail.invoke(exception) }
         )
-        return list.map { it.email }.contains(email)
     }
 }
