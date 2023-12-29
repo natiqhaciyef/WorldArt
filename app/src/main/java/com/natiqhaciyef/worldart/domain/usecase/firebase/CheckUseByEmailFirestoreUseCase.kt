@@ -15,9 +15,7 @@ class CheckUseByEmailFirestoreUseCase @Inject constructor(
     ): Boolean {
         val list = mutableListOf<MappedUserWithoutPassword>()
         getAllUsersWithoutPasswordFirestoreUseCase.invoke(
-            onSuccess = { iterator ->
-                list.addAll(iterator)
-            },
+            onSuccess = { iterator -> list.addAll(iterator) },
             onFail = { }
         )
         return list.map { it.email }.contains(email)

@@ -32,11 +32,11 @@ class OnBoardingFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
             delay(2300)
-            if (onboardingViewModel.isAuth() && onboardingViewModel.isAuthStored())
+//            && onboardingViewModel.isAuthStored()
+            if (onboardingViewModel.isAuth())
                 findNavController().navigate(R.id.home_nav_graph)
-//            else
-//                findNavController().navigate(R.id.loginFragment)
-
+            else
+                findNavController().navigate(R.id.loginFragment)
         }
     }
 }

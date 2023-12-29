@@ -1,5 +1,10 @@
 package com.natiqhaciyef.worldart.common.objects
 
 object SuccessMessages {
-    const val MESSAGE_SENT_SUCCESSFULLY = "Message sent successfully"
+    const val MESSAGE_SENT_SUCCESS = "Message sent successfully"
+
+    const val SIGN_IN_SUCCESS = "Signed in successfully"
+    const val SIGN_UP_SUCCESS = "Signed up successfully"
+    const val RESET_PASSWORD_SUCCESS = "Reset link sent successfully"
+
 }

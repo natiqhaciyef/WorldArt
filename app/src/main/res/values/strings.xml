@@ -8,5 +8,12 @@
     <string name="sign_in">Sign in</string>
     <string name="forgot_password">Forgot password ?</string>
     <string name="you_don_t_have_an_account"><![CDATA[<font color=#5C26A1>You don\'t have an account ? </font><font color=#EFC700>Sign up</font>]]></string>
+    <string name="you_have_an_account"><![CDATA[<font color=#5C26A1>Do you have an account ? </font><font color=#EFC700>Sign in</font>]]></string>
+    <string name="sign_up_and_join_us">Sign up and join us</string>
+    <string name="check_message">Please check your email, we will send the reset password link. If it is not show, check spam messages box</string>
+    <string name="username">Username</string>
+    <string name="sign_up">Sign up</string>
+    <string name="reset_password">Reset password</string>
+    <string name="send">Send</string>
 
 </resources>

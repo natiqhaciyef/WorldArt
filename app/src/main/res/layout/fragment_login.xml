@@ -12,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_margin="20dp"
+        app:lottie_loop="false"
+        app:lottie_autoPlay="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,7 +29,7 @@
         android:text="@string/login_now"
         android:textAlignment="textStart"
         android:textColor="@color/app_yellow"
-        android:textSize="30sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.625"
@@ -103,11 +105,11 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/signInButton"
         android:layout_width="200dp"
         android:layout_height="55dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/custom_registration_button_background"
+        android:background="@drawable/custom_registration_button_background_purple"
         android:text="@string/sign_in"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -132,7 +134,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+        app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

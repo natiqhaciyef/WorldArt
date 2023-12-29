@@ -19,6 +19,8 @@ object ErrorMessages {
     const val USER_NOT_FOUND = "User not found"
     const val PASSWORD_RESETTING_FAILED = "Password resetting failed"
 
+    const val WRONG_FILLED_FIELD = "Wrong filled field(s)"
+
     const val DATA_NOT_FOUND = "Data not found"
     const val DOCUMENT_NOT_FOUND = "Document(s) not found"
     const val APPLICATION_UNDER_THE_TEST = "Application is under the test\nAfter production mode data will accessible"
