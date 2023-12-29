@@ -39,6 +39,7 @@ class LoginFragment : BaseFragment() {
         loginViewModel.state.observe(viewLifecycleOwner) {
             println(it.isSuccessMessage)
             println(it.isFailMessage)
+            navigateToHomeNavGraph()
         }
     }
 
@@ -81,6 +82,12 @@ class LoginFragment : BaseFragment() {
             )
 
             loginViewModel.signIn(userModel)
+        }
+    }
+
+    private fun navigateToHomeNavGraph(){
+        if (loginViewModel.state.value?.isSuccess == true){
+            navigate(R.id.home_nav_graph)
         }
     }
 

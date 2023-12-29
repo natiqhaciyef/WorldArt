@@ -35,8 +35,10 @@ class HomeFragment : Fragment() {
         artFieldAdapter = ArtAdapter(requireContext(), artFieldsList)
         binding.recyclerArtFields.adapter = artFieldAdapter
         binding.recyclerArtFields.layoutManager =
-            GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
+            GridLayoutManager(requireContext(), 3, GridLayoutManager.VERTICAL, false)
+        artFieldAdapter.onClickAction { artFieldModel, s ->
 
+        }
     }
 
     private fun setup() {
@@ -53,11 +55,11 @@ class HomeFragment : Fragment() {
 
     companion object {
         val artFieldsList = listOf(
-            ArtFieldModel(title = "Architecture", image = ""),
-            ArtFieldModel(title = "History", image = ""),
-            ArtFieldModel(title = "Painting", image = ""),
-            ArtFieldModel(title = "Science", image = ""),
-//            ArtFieldModel(title = "Travel", image = ""),
+            ArtFieldModel(title = "Architecture", image = "architecture_icon"),
+            ArtFieldModel(title = "History", image = "history_icon"),
+            ArtFieldModel(title = "Painting", image = "painting_icon"),
+            ArtFieldModel(title = "Science", image = "science_icon"),
+            ArtFieldModel(title = "Travel", image = "travel_icon"),
         )
     }
 }

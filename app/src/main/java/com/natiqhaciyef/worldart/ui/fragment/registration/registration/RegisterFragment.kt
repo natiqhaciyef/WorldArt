@@ -25,7 +25,7 @@ class RegisterFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
@@ -37,9 +37,12 @@ class RegisterFragment : BaseFragment() {
         register()
         navigateToSignIn()
 
-        registerViewModel.state.observe(viewLifecycleOwner){
+        registerViewModel.state.observe(viewLifecycleOwner) {
             println(it.isSuccessMessage)
             println(it.isFailMessage)
+
+            if (it.isSuccess)
+                navigateToSignIn()
         }
     }
 
@@ -87,7 +90,7 @@ class RegisterFragment : BaseFragment() {
         }
     }
 
-    private fun navigateToSignIn(){
+    private fun navigateToSignIn() {
         binding.goToSignIn.setOnClickListener {
             navigate(R.id.loginFragment)
         }

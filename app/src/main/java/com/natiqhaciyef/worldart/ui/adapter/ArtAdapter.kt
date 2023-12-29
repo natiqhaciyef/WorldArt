@@ -5,12 +5,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.natiqhaciyef.worldart.databinding.RecyclerHomeCardItemBinding
+import com.natiqhaciyef.worldart.ui.base.BaseNavigationDeepLink
+import com.natiqhaciyef.worldart.ui.base.BaseNavigationDeepLink.getDeepLink
 import com.natiqhaciyef.worldart.ui.model.ArtFieldModel
 
 class ArtAdapter(
     private val context: Context,
-    private val list: List<ArtFieldModel>
+    private val list: List<ArtFieldModel>,
 ) : RecyclerView.Adapter<ArtAdapter.ArtViewHolder>() {
+
+    private var action: (ArtFieldModel, String) -> Unit = { art, title -> }
 
     inner class ArtViewHolder(val binding: RecyclerHomeCardItemBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -28,7 +32,17 @@ class ArtAdapter(
         val art = list[position]
 
         view.artIcon
-            .setImageResource(context.resources.getIdentifier(art.image, "drawable", context.packageName))
+            .setImageResource(
+                context.resources.getIdentifier(art.image, "drawable", context.packageName)
+            )
         view.artTitle.text = art.title
+
+        holder.itemView.setOnClickListener {
+            action.invoke(art, getDeepLink(art))
+        }
+    }
+
+    fun onClickAction(action: (ArtFieldModel, String) -> Unit) {
+        this.action = action
     }
 }
