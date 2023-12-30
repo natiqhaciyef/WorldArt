@@ -8,6 +8,7 @@ import com.natiqhaciyef.worldart.common.objects.ErrorMessages.SIGN_UP_FAILED
 import com.natiqhaciyef.worldart.common.objects.ErrorMessages.WRONG_FILLED_FIELD
 import com.natiqhaciyef.worldart.common.objects.SuccessMessages
 import com.natiqhaciyef.worldart.data.model.UserModel
+import com.natiqhaciyef.worldart.domain.usecase.firebase.LogOutUseCase
 import com.natiqhaciyef.worldart.domain.usecase.firebase.SignUpFirebaseUseCase
 import com.natiqhaciyef.worldart.ui.base.BaseUIState
 import com.natiqhaciyef.worldart.ui.base.BaseViewModel
@@ -18,6 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     private val signUpFirebaseUseCase: SignUpFirebaseUseCase,
+    private val logOutUseCase: LogOutUseCase,
 ) : BaseViewModel() {
     private val _state = MutableLiveData(BaseUIState<String>())
     val state: LiveData<BaseUIState<String>>
@@ -27,8 +29,8 @@ class RegisterViewModel @Inject constructor(
         userModel: UserModel
     ) {
         viewModelScope.launch {
-            if (!userModel.name.contains(" ")
-                && userModel.email.endsWith("@gmail.com")
+            if (
+                userModel.email.endsWith("@gmail.com")
                 && userModel.password.length >= 8
             ) {
                 signUpFirebaseUseCase.invoke(
@@ -44,6 +46,7 @@ class RegisterViewModel @Inject constructor(
                             isSuccessMessage = SuccessMessages.SIGN_UP_SUCCESS,
                             isLoading = false,
                         )
+                        logOut()
                     },
                     onFail = {
                         _state.value = _state.value?.copy(
@@ -66,6 +69,13 @@ class RegisterViewModel @Inject constructor(
                     isLoading = false,
                 )
             }
+        }
+    }
+
+
+    private fun logOut() {
+        viewModelScope.launch {
+            logOutUseCase.invoke()
         }
     }
 }

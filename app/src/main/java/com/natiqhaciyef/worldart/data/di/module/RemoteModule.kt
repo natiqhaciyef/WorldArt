@@ -4,11 +4,13 @@ import com.natiqhaciyef.worldart.data.network.config.NetworkConfig
 import com.natiqhaciyef.worldart.data.network.service.ArchService
 import com.natiqhaciyef.worldart.data.network.service.HistoryService
 import com.natiqhaciyef.worldart.data.network.service.PaintingService
+import com.natiqhaciyef.worldart.data.network.service.PostService
 import com.natiqhaciyef.worldart.data.network.service.ScienceService
 import com.natiqhaciyef.worldart.data.network.service.TravelService
 import com.natiqhaciyef.worldart.data.source.ArchitectureSource
 import com.natiqhaciyef.worldart.data.source.HistorySource
 import com.natiqhaciyef.worldart.data.source.PaintingSource
+import com.natiqhaciyef.worldart.data.source.PostSource
 import com.natiqhaciyef.worldart.data.source.ScienceSource
 import com.natiqhaciyef.worldart.data.source.TravelSource
 import dagger.Module
@@ -56,6 +58,11 @@ object RemoteModule {
     fun provideTravelService(retrofit: Retrofit): TravelService =
         retrofit.create(TravelService::class.java)
 
+    @Provides
+    @Singleton
+    fun providePostService(retrofit: Retrofit): PostService =
+        retrofit.create(PostService::class.java)
+
 
     @Provides
     @Singleton
@@ -76,4 +83,8 @@ object RemoteModule {
     @Provides
     @Singleton
     fun provideTravelSource(service: TravelService) = TravelSource(service)
+
+    @Provides
+    @Singleton
+    fun providePostSource(service: PostService) = PostSource(service)
 }

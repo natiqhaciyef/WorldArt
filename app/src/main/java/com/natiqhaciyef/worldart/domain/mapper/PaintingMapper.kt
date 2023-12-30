@@ -6,10 +6,10 @@ import com.natiqhaciyef.worldart.data.model.io.PaintingNetworkModel
 import com.natiqhaciyef.worldart.domain.model.UIResult
 
 fun UIResult<PaintingModel>.toNetworkModel(): PaintingNetworkModel {
-    val history = Gson().toJson(this.data)
+    val painting = Gson().toJson(this.data)
     return PaintingNetworkModel(
         id = this.id,
-        painting = history,
+        painting = painting,
         publishDate = this.publishDate
     )
 }

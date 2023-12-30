@@ -42,7 +42,7 @@ class RegisterFragment : BaseFragment() {
             println(it.isFailMessage)
 
             if (it.isSuccess)
-                navigateToSignIn()
+                navigate(R.id.loginFragment)
         }
     }
 
@@ -87,6 +87,7 @@ class RegisterFragment : BaseFragment() {
             )
 
             registerViewModel.signUp(user)
+
         }
     }
 

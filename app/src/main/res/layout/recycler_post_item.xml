@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="385dp"
+    android:layout_marginVertical="5dp">
+
+    <ImageView
+        android:id="@+id/postImage"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:scaleType="centerCrop"
+        android:src="@color/app_yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/postUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="10dp"
+        android:text="Natiq Haciyev"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/postImage" />
+
+    <TextView
+        android:id="@+id/postDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="5dp"
+        android:singleLine="true"
+        android:text="bomboklad etiraf sehifesine xos gelmisiz"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/postUsername" />
+
+
+    <ImageView
+        android:id="@+id/postLikeIcon"
+        android:layout_width="28.5dp"
+        android:layout_height="28.5dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/unfilled_like_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/postDescription" />
+
+
+    <ImageView
+        android:id="@+id/postShareIcon"
+        android:layout_width="25.5dp"
+        android:layout_height="25.5dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/share_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/postLikeIcon"
+        app:layout_constraintTop_toBottomOf="@id/postDescription" />
+
+    <ImageView
+        android:id="@+id/postSaveIcon"
+        android:layout_width="29.5dp"
+        android:layout_height="29.5dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/unfilled_save_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/postShareIcon"
+        app:layout_constraintTop_toBottomOf="@id/postDescription" />
+
+    <ImageView
+        android:id="@+id/postSettingsIcon"
+        android:layout_width="29.5dp"
+        android:layout_height="29.5dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/parameters_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/postDescription" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

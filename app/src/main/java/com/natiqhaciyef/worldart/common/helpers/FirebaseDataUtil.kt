@@ -6,14 +6,14 @@ import com.natiqhaciyef.worldart.domain.model.MappedUserWithoutPassword
 
 fun DocumentSnapshot.toUserModel(): MappedUserWithoutPassword {
     return MappedUserWithoutPassword(
-        name = this["name"].toString(),
+        name = this["username"].toString(),
         email = this["email"].toString()
     )
 }
 
 fun UserModel.toFirebaseHashMap(): HashMap<String, Any?> {
     val userMap = hashMapOf<String, Any?>()
-    userMap["name"] = this.name
+    userMap["username"] = this.name
     userMap["email"] = this.email
     userMap["password"] = this.password
 

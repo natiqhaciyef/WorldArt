@@ -36,4 +36,8 @@ sealed class EndPoints {
     data object TravelEndpoint : EndPoints() {
         const val GET = "travel/get_travels.php$$apiResult"
     }
+
+    data object PostEndpoint : EndPoints() {
+        const val GET = "post/get_posts.php$$apiResult"
+    }
 }
