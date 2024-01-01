@@ -13,96 +13,15 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="20dp">
 
-
-        <View
-            android:id="@+id/headerView"
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/epoxyHomeView"
             android:layout_width="match_parent"
-            android:layout_height="185dp"
-            android:background="@drawable/home_header_background"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/greetingTitle"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="35dp"
-            android:fontFamily="@font/lobster"
-            android:text="@string/hello_user"
-            android:textColor="@color/app_yellow"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/notificationIcon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="28dp"
-            android:src="@drawable/notifications_icon"
-            app:layout_constraintBottom_toBottomOf="@+id/greetingTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/greetingTitle"
-            app:tint="@color/app_yellow" />
-
-        <android.widget.SearchView
-            android:id="@+id/searchBar"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="35dp"
-            android:background="@drawable/custom_search_background"
-            android:closeIcon="@drawable/close_icon"
-            android:iconifiedByDefault="false"
-            android:outlineAmbientShadowColor="#F4F4F4"
-            android:outlineSpotShadowColor="#E1E1E1"
-            android:queryBackground="@android:color/transparent"
-            android:queryHint="Search"
-            android:searchIcon="@drawable/search_icon"
-            android:textColor="@color/black"
-            android:textColorHint="@color/app_gray"
-            android:textSize="16sp"
-            android:theme="@style/SearchViewStyle"
-            app:layout_constraintBottom_toBottomOf="@+id/headerView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerArtFields"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/headerView" />
-
-        <TextView
-            android:id="@+id/postsTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:padding="10dp"
-            android:text="@string/posts"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recyclerArtFields" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerPostsView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/postsTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

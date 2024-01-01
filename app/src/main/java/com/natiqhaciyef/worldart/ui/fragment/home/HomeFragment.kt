@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.airbnb.epoxy.EpoxyRecyclerView
 import com.natiqhaciyef.worldart.R
 import com.natiqhaciyef.worldart.databinding.FragmentHomeBinding
 import com.natiqhaciyef.worldart.ui.adapter.ArtAdapter
@@ -20,10 +21,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var artFieldAdapter: ArtAdapter
-    private lateinit var postAdapter: PostAdapter
     private val homeViewModel: HomeViewModel by viewModels()
-    private var homeEventController: HomeEventController? = null
+    private var homeEpoxyModel: HomeEpoxyModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,42 +35,23 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setup()
-
-        artFieldAdapter = ArtAdapter(requireContext(), artFieldsList)
-        binding.recyclerArtFields.adapter = artFieldAdapter
-        binding.recyclerArtFields.layoutManager =
-            GridLayoutManager(requireContext(), 3, GridLayoutManager.VERTICAL, false)
-        if (homeEventController != null) {
-            artFieldAdapter.onClickAction(homeEventController!!.artFieldOnClickEvent)
-        }
-
-        homeViewModel.postState.observe(viewLifecycleOwner) {
-            postAdapter = PostAdapter(requireContext(), it.dataSet)
-            binding.recyclerPostsView.adapter = postAdapter
-            binding.recyclerPostsView.layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            if (homeEventController != null) {
-                postAdapter.likeClickAction(homeEventController!!.likeIconClickEvent)
-                postAdapter.shareClickAction(homeEventController!!.shareIconClickEvent)
-                postAdapter.saveClickAction(homeEventController!!.saveIconClickEvent)
-                postAdapter.settingClickAction(homeEventController!!.settingIconClickEvent)
-            }
-        }
     }
 
     private fun setup() {
-        homeEventController = HomeEventController(homeViewModel)
+        val homeEventController = HomeEpoxyController(requireContext(), homeViewModel)
+        homeEpoxyModel = HomeEpoxyModel()
 
-        homeViewModel.userState.observe(viewLifecycleOwner) {
-            val title = if (it.isSuccess) it.data?.name else "Friend"
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                binding.greetingTitle.text =
-                    Html.fromHtml(
-                        getString(R.string.hello_user, title),
-                        Html.FROM_HTML_MODE_COMPACT
-                    )
-            } else {
-                binding.greetingTitle.text = Html.fromHtml(getString(R.string.hello_user, title))
+        homeViewModel.postState.observe(viewLifecycleOwner) { post ->
+            homeViewModel.userState.observe(viewLifecycleOwner) { user ->
+                val title = if (user.isSuccess) user.data?.name else "Friend"
+
+                homeEventController.model = HomeEpoxyModel(
+                    username = title,
+                    artList = artFieldsList,
+                    postList = post.dataSet
+                )
+
+                binding.epoxyHomeView.setControllerAndBuildModels(homeEventController)
             }
         }
     }
