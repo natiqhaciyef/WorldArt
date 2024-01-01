@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.natiqhaciyef.worldart.R
+import com.natiqhaciyef.worldart.common.objects.ErrorMessages
 import com.natiqhaciyef.worldart.data.model.UserModel
 import com.natiqhaciyef.worldart.databinding.FragmentRegisterBinding
 import com.natiqhaciyef.worldart.ui.base.BaseFragment
@@ -41,8 +42,7 @@ class RegisterFragment : BaseFragment() {
             println(it.isSuccessMessage)
             println(it.isFailMessage)
 
-            if (it.isSuccess)
-                navigate(R.id.loginFragment)
+            navigateToLogin()
         }
     }
 
@@ -94,6 +94,14 @@ class RegisterFragment : BaseFragment() {
     private fun navigateToSignIn() {
         binding.goToSignIn.setOnClickListener {
             navigate(R.id.loginFragment)
+        }
+    }
+
+    private fun navigateToLogin() {
+        if (registerViewModel.state.value?.isSuccess == true) {
+            navigate(R.id.loginFragment)
+        } else if (registerViewModel.state.value?.isFail == true) {
+            generateToast(registerViewModel.state.value?.isFailMessage ?: ErrorMessages.SIGN_UP_FAILED)
         }
     }
 }

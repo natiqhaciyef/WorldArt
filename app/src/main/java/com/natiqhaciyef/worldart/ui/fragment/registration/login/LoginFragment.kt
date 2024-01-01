@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.natiqhaciyef.worldart.R
+import com.natiqhaciyef.worldart.common.objects.ErrorMessages
 import com.natiqhaciyef.worldart.data.model.UserModel
 import com.natiqhaciyef.worldart.databinding.FragmentLoginBinding
 import com.natiqhaciyef.worldart.ui.base.BaseFragment
@@ -23,7 +24,7 @@ class LoginFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
@@ -37,8 +38,7 @@ class LoginFragment : BaseFragment() {
         navigateToSignUp()
 
         loginViewModel.state.observe(viewLifecycleOwner) {
-            println(it.isSuccessMessage)
-            println(it.isFailMessage)
+
             navigateToHomeNavGraph()
         }
     }
@@ -85,9 +85,11 @@ class LoginFragment : BaseFragment() {
         }
     }
 
-    private fun navigateToHomeNavGraph(){
-        if (loginViewModel.state.value?.isSuccess == true){
+    private fun navigateToHomeNavGraph() {
+        if (loginViewModel.state.value?.isSuccess == true) {
             navigate(R.id.home_nav_graph)
+        } else if (loginViewModel.state.value?.isFail == true) {
+            generateToast(loginViewModel.state.value?.isFailMessage ?: ErrorMessages.SIGN_IN_FAILED)
         }
     }
 

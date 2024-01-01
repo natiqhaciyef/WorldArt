@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.natiqhaciyef.worldart.R
+import com.natiqhaciyef.worldart.common.objects.ErrorMessages
 import com.natiqhaciyef.worldart.databinding.FragmentForgotPasswordBinding
 import com.natiqhaciyef.worldart.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,8 +29,7 @@ class ForgotPasswordFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         send()
         forgotPasswordViewModel.state.observe(viewLifecycleOwner){
-            println(it.isSuccessMessage)
-            println(it.isFailMessage)
+            navigateToLogin()
         }
     }
 
@@ -37,6 +37,14 @@ class ForgotPasswordFragment : BaseFragment() {
         binding.sendButton.setOnClickListener {
             val email = binding.emailTextInputReset.text.toString()
             forgotPasswordViewModel.resetPassword(email)
+        }
+    }
+
+    private fun navigateToLogin() {
+        if (forgotPasswordViewModel.state.value?.isSuccess == true) {
+            navigate(R.id.loginFragment)
+        } else if (forgotPasswordViewModel.state.value?.isFail == true) {
+            generateToast(forgotPasswordViewModel.state.value?.isFailMessage ?: ErrorMessages.PASSWORD_RESETTING_FAILED)
         }
     }
 }
