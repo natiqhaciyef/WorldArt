@@ -1,5 +1,6 @@
 package com.natiqhaciyef.worldart.ui.fragment.home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.text.Html
@@ -25,10 +26,10 @@ class HomeEpoxyController(
 
     companion object {
         var artFieldOnClickEvent: (ArtFieldModel, String) -> Unit = { art, navLink -> }
-        val likeIconClickEvent: (Boolean) -> Unit = {}
-        val saveIconClickEvent: (Boolean) -> Unit = {}
-        val settingIconClickEvent: () -> Unit = {}
-        val shareIconClickEvent: (UIResult<MappedPostModel>) -> Unit = {}
+        var likeIconClickEvent: (Boolean) -> Unit = {}
+        var saveIconClickEvent: (Boolean) -> Unit = {}
+        var settingIconClickEvent: () -> Unit = {}
+        var shareIconClickEvent: (UIResult<MappedPostModel>) -> Unit = {}
     }
 
     var isLoading: Boolean = true
@@ -112,6 +113,7 @@ class HomeEpoxyController(
         val context: Context,
         val list: List<UIResult<MappedPostModel>>
     ) : ViewBindingKotlinModel<EpoxyHomeFooterViewBinding>(R.layout.epoxy_home_footer_view) {
+        @SuppressLint("SuspiciousIndentation")
         override fun EpoxyHomeFooterViewBinding.bind() {
             val postAdapter = PostAdapter(context, list)
             recyclerPostsView.adapter = postAdapter
