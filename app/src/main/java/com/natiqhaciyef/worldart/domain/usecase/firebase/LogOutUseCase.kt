@@ -1,8 +1,7 @@
 package com.natiqhaciyef.worldart.domain.usecase.firebase
 
-import com.google.firebase.auth.FirebaseAuth
 import com.natiqhaciyef.worldart.domain.repository.FirebaseRepository
-import com.natiqhaciyef.worldart.domain.usecase.BaseUseCase
+import com.natiqhaciyef.worldart.domain.base.BaseUseCase
 import javax.inject.Inject
 
 class LogOutUseCase @Inject constructor(

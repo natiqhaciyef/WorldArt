@@ -18,5 +18,6 @@
     <string name="hello_user"><![CDATA[<font color=#FFFFFF>Hello, </font><font color=#EFC700>%1$s</font>]]></string>
     <string name="posts">Posts</string>
     <string name="data_not_found">Data not found</string>
+    <string name="art_of_architecture">Art of architecture</string>
 
 </resources>

@@ -24,4 +24,8 @@ object ErrorMessages {
     const val DATA_NOT_FOUND = "Data not found"
     const val DOCUMENT_NOT_FOUND = "Document(s) not found"
     const val APPLICATION_UNDER_THE_TEST = "Application is under the test\nAfter production mode data will accessible"
+
+    const val WRONG_FILLED_ALL_INPUTS_REASON =
+        "Email is not correct filled or Password have to be over 8 character."
+    const val WRONG_FILLED_EMAIL_INPUT_REASON = "Email is not correct filled"
 }

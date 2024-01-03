@@ -1,5 +1,6 @@
 package com.natiqhaciyef.worldart.ui.fragment.registration.onboard
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.natiqhaciyef.worldart.R
 import com.natiqhaciyef.worldart.databinding.FragmentOnBoardingBinding
+import com.natiqhaciyef.worldart.ui.activity.MainActivity
 import com.natiqhaciyef.worldart.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
@@ -22,7 +24,7 @@ class OnBoardingFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentOnBoardingBinding.inflate(inflater, container, false)
         return binding.root
@@ -32,10 +34,12 @@ class OnBoardingFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         lifecycleScope.launch {
             delay(2500)
-            if (onboardingViewModel.isAuth())
-                findNavController().navigate(R.id.home_nav_graph)
-            else
-                findNavController().navigate(R.id.loginFragment)
+            if (onboardingViewModel.isAuth()) {
+                val intent = Intent(requireActivity(), MainActivity::class.java)
+                navigate(requireActivity(),intent)
+            } else {
+                navigate(R.id.loginFragment)
+            }
         }
     }
 }

@@ -9,4 +9,5 @@ object SuccessMessages {
     const val RESET_PASSWORD_SUCCESS = "Reset link sent successfully"
 
     const val USER_FOUND_SUCCESS = "User successfully found"
+    const val DATA_LOADED_SUCCESSFULLY = "Data loaded successfully"
 }

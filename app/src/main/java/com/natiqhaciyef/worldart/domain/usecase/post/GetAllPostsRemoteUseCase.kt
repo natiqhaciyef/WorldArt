@@ -1,10 +1,9 @@
 package com.natiqhaciyef.worldart.domain.usecase.post
 
 import com.natiqhaciyef.worldart.common.classes.Resource
-import com.natiqhaciyef.worldart.domain.repository.BaseRepository
 import com.natiqhaciyef.worldart.domain.repository.PostRepository
-import com.natiqhaciyef.worldart.domain.usecase.BaseUseCase
-import com.natiqhaciyef.worldart.domain.usecase.ConfigUseCase
+import com.natiqhaciyef.worldart.domain.base.BaseUseCase
+import com.natiqhaciyef.worldart.domain.base.ConfigUseCase
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 

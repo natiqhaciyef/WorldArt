@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.natiqhaciyef.worldart.common.classes.Status
 import com.natiqhaciyef.worldart.common.objects.ErrorMessages
 import com.natiqhaciyef.worldart.common.objects.SuccessMessages
+import com.natiqhaciyef.worldart.common.objects.SuccessMessages.DATA_LOADED_SUCCESSFULLY
 import com.natiqhaciyef.worldart.domain.model.MappedPostModel
 import com.natiqhaciyef.worldart.domain.model.MappedUserWithoutPassword
 import com.natiqhaciyef.worldart.domain.model.UIResult
@@ -47,7 +48,7 @@ class HomeViewModel @Inject constructor(
                 if (users.isNotEmpty()) {
                     _userState.value = _userState.value?.copy(
                         data = users[0],
-                        dataSet = listOf(),
+                        dataSet = null,
                         isLoading = false,
                         isFail = false,
                         isFailMessage = null,
@@ -60,7 +61,7 @@ class HomeViewModel @Inject constructor(
             onFail = {
                 _userState.value = _userState.value?.copy(
                     data = null,
-                    dataSet = listOf(),
+                    dataSet = null,
                     isLoading = false,
                     isFail = true,
                     isFailMessage = ErrorMessages.USER_NOT_FOUND,
@@ -80,7 +81,7 @@ class HomeViewModel @Inject constructor(
                         _postState.value = _postState.value?.copy(
                             isLoading = true,
                             data = null,
-                            dataSet = listOf(),
+                            dataSet = null,
                             isSuccessMessage = null,
                             isSuccess = false,
                             isFailReason = null,
@@ -93,7 +94,7 @@ class HomeViewModel @Inject constructor(
                         _postState.value = _postState.value?.copy(
                             isLoading = false,
                             data = null,
-                            dataSet = listOf(),
+                            dataSet = null,
                             isSuccessMessage = null,
                             isSuccess = false,
                             isFailReason = Exception(result.message),

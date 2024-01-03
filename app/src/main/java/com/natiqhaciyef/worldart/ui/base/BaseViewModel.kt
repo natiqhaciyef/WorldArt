@@ -13,12 +13,4 @@ open class BaseViewModel @Inject constructor() : ViewModel(), CoroutineScope {
     private val job = Job()
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
-
-    companion object {
-        const val WRONG_FILLED_ALL_INPUTS_REASON =
-            "Email is not correct filled or Password have to be over 8 character."
-        const val WRONG_FILLED_EMAIL_INPUT_REASON = "Email is not correct filled"
-
-        const val DATA_LOADED_SUCCESSFULLY = "Data loaded successfully"
-    }
 }

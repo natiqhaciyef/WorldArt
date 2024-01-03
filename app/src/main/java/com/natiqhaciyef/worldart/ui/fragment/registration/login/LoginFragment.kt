@@ -1,5 +1,6 @@
 package com.natiqhaciyef.worldart.ui.fragment.registration.login
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
@@ -13,6 +14,7 @@ import com.natiqhaciyef.worldart.R
 import com.natiqhaciyef.worldart.common.objects.ErrorMessages
 import com.natiqhaciyef.worldart.data.model.UserModel
 import com.natiqhaciyef.worldart.databinding.FragmentLoginBinding
+import com.natiqhaciyef.worldart.ui.activity.MainActivity
 import com.natiqhaciyef.worldart.ui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -87,7 +89,8 @@ class LoginFragment : BaseFragment() {
 
     private fun navigateToHomeNavGraph() {
         if (loginViewModel.state.value?.isSuccess == true) {
-            navigate(R.id.home_nav_graph)
+            val intent = Intent(requireActivity(), MainActivity::class.java)
+            navigate(requireActivity(), intent)
         } else if (loginViewModel.state.value?.isFail == true) {
             generateToast(loginViewModel.state.value?.isFailMessage ?: ErrorMessages.SIGN_IN_FAILED)
         }

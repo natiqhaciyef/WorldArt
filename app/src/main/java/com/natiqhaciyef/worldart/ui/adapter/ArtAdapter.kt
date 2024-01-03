@@ -14,7 +14,7 @@ class ArtAdapter(
     private val list: List<ArtFieldModel>,
 ) : RecyclerView.Adapter<ArtAdapter.ArtViewHolder>() {
 
-    private var action: (ArtFieldModel, String) -> Unit = { art, title -> }
+    private var action: (ArtFieldModel, String) -> Unit = { art, navLink -> }
 
     inner class ArtViewHolder(val binding: RecyclerHomeCardItemBinding) :
         RecyclerView.ViewHolder(binding.root)

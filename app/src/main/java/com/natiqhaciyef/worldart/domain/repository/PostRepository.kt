@@ -1,6 +1,6 @@
 package com.natiqhaciyef.worldart.domain.repository
 
-import com.natiqhaciyef.worldart.data.network.result.PostResult
+import com.natiqhaciyef.worldart.domain.base.BaseRepository
 import com.natiqhaciyef.worldart.domain.model.MappedPostModel
 import com.natiqhaciyef.worldart.domain.model.UIResult
 

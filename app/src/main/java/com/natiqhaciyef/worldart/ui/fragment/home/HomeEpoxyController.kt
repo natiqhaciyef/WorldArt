@@ -26,14 +26,6 @@ class HomeEpoxyController(
     homeViewModel: HomeViewModel?,
 ) : BaseEventController<HomeViewModel>(context, homeViewModel) {
 
-    companion object {
-        var artFieldOnClickEvent: (ArtFieldModel, String) -> Unit = { art, navLink -> }
-        var likeIconClickEvent: (Boolean) -> Unit = {}
-        var saveIconClickEvent: (Boolean) -> Unit = {}
-        var settingIconClickEvent: () -> Unit = {}
-        var shareIconClickEvent: (UIResult<MappedPostModel>) -> Unit = {}
-    }
-
     var isLoading: Boolean = true
         set(value) {
             field = value
@@ -147,5 +139,13 @@ class HomeEpoxyController(
         override fun EpoxyContainerTextViewBinding.bind() {
             messageContainerText.text = text
         }
+    }
+
+    companion object {
+        var artFieldOnClickEvent: (ArtFieldModel, String) -> Unit = { art, navLink -> }
+        var likeIconClickEvent: (Boolean) -> Unit = {}
+        var saveIconClickEvent: (Boolean) -> Unit = {}
+        var settingIconClickEvent: () -> Unit = {}
+        var shareIconClickEvent: (UIResult<MappedPostModel>) -> Unit = {}
     }
 }

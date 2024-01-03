@@ -40,4 +40,8 @@ sealed class EndPoints {
     data object PostEndpoint : EndPoints() {
         const val GET = "post/get_posts.php$$apiResult"
     }
+
+    data object AdsEndpoint : EndPoints() {
+        const val GET = "ad/get_ads.php$$apiResult"
+    }
 }

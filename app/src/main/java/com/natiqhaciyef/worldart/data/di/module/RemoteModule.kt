@@ -1,12 +1,14 @@
 package com.natiqhaciyef.worldart.data.di.module
 
 import com.natiqhaciyef.worldart.data.network.config.NetworkConfig
+import com.natiqhaciyef.worldart.data.network.service.AdsService
 import com.natiqhaciyef.worldart.data.network.service.ArchService
 import com.natiqhaciyef.worldart.data.network.service.HistoryService
 import com.natiqhaciyef.worldart.data.network.service.PaintingService
 import com.natiqhaciyef.worldart.data.network.service.PostService
 import com.natiqhaciyef.worldart.data.network.service.ScienceService
 import com.natiqhaciyef.worldart.data.network.service.TravelService
+import com.natiqhaciyef.worldart.data.source.AdSource
 import com.natiqhaciyef.worldart.data.source.ArchitectureSource
 import com.natiqhaciyef.worldart.data.source.HistorySource
 import com.natiqhaciyef.worldart.data.source.PaintingSource
@@ -63,6 +65,11 @@ object RemoteModule {
     fun providePostService(retrofit: Retrofit): PostService =
         retrofit.create(PostService::class.java)
 
+    @Provides
+    @Singleton
+    fun provideAdsService(retrofit: Retrofit): AdsService =
+        retrofit.create(AdsService::class.java)
+
 
     @Provides
     @Singleton
@@ -87,4 +94,8 @@ object RemoteModule {
     @Provides
     @Singleton
     fun providePostSource(service: PostService) = PostSource(service)
+
+    @Provides
+    @Singleton
+    fun provideAdSource(service: AdsService) = AdSource(service)
 }

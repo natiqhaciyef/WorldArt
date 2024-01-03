@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/arch_nav_graph"
+    app:startDestination="@id/architectureMainFragment">
+
+    <fragment
+        android:id="@+id/architectureMainFragment"
+        android:name="com.natiqhaciyef.worldart.ui.fragment.details.architecture.ArchitectureMainFragment"
+        android:label="fragment_architecture_main"
+        tools:layout="@layout/fragment_architecture_main">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="wa://architecture/main" />
+
+    </fragment>
+
+
+</navigation>

@@ -29,6 +29,8 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="false">
+            <nav-graph android:value="@navigation/home_nav_graph" />
+
         </activity>
 
         <meta-data

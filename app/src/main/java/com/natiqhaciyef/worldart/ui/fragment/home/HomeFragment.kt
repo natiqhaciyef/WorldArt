@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDeepLinkBuilder
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.epoxy.EpoxyRecyclerView
@@ -15,18 +17,21 @@ import com.natiqhaciyef.worldart.R
 import com.natiqhaciyef.worldart.databinding.FragmentHomeBinding
 import com.natiqhaciyef.worldart.ui.adapter.ArtAdapter
 import com.natiqhaciyef.worldart.ui.adapter.PostAdapter
+import com.natiqhaciyef.worldart.ui.base.BaseFragment
+import com.natiqhaciyef.worldart.ui.base.BaseNavigationDeepLink
+import com.natiqhaciyef.worldart.ui.fragment.details.architecture.ArchitectureMainFragment
 import com.natiqhaciyef.worldart.ui.model.ArtFieldModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
     private lateinit var binding: FragmentHomeBinding
     private val homeViewModel: HomeViewModel by viewModels()
     private var homeEpoxyModel: HomeEpoxyModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
@@ -48,8 +53,12 @@ class HomeFragment : Fragment() {
                 homeEventController.model = HomeEpoxyModel(
                     username = title,
                     artList = artFieldsList,
-                    postList = post.dataSet
+                    postList = post.dataSet ?: listOf()
                 )
+
+                HomeEpoxyController.artFieldOnClickEvent = { art, navLink ->
+                    handleDeepLink(navLink)
+                }
 
                 binding.epoxyHomeView.setControllerAndBuildModels(homeEventController)
             }

@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.natiqhaciyef.worldart.common.objects.ErrorMessages
+import com.natiqhaciyef.worldart.common.objects.ErrorMessages.WRONG_FILLED_EMAIL_INPUT_REASON
 import com.natiqhaciyef.worldart.common.objects.SuccessMessages
 import com.natiqhaciyef.worldart.domain.usecase.firebase.ResetPasswordBySendingWebLinkFirebaseUseCase
 import com.natiqhaciyef.worldart.ui.base.BaseUIState

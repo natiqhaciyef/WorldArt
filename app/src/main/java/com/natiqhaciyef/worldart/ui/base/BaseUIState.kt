@@ -2,7 +2,7 @@ package com.natiqhaciyef.worldart.ui.base
 
 data class BaseUIState<T>(
     var data: T? = null,
-    var dataSet: List<T> = listOf(),
+    var dataSet: List<T>? = listOf(),
     var isLoading: Boolean = true,
     var isSuccess: Boolean = false,
     var isFail: Boolean = false,

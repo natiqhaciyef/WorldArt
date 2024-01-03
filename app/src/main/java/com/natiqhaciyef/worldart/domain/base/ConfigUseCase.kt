@@ -1,4 +1,4 @@
-package com.natiqhaciyef.worldart.domain.usecase
+package com.natiqhaciyef.worldart.domain.base
 
 object ConfigUseCase {
     const val LOADING_FAIL = "Loading failed"

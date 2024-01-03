@@ -1,42 +1,80 @@
 package com.natiqhaciyef.worldart.ui.base
 
+import com.natiqhaciyef.worldart.R
 import com.natiqhaciyef.worldart.ui.model.ArtFieldModel
 
 object BaseNavigationDeepLink {
-    private const val ARCHITECTURE_DEEPLINK = "wa://architecture/details"
-    private const val HISTORY_DEEPLINK = "wa://history/details"
-    private const val PAINTING_DEEPLINK = "wa://painting/details"
-    private const val SCIENCE_DEEPLINK = "wa://science/details"
-    private const val TRAVEL_DEEPLINK = "wa://travel/details"
-    private const val CUSTOM_DEEPLINK = "wa://custom/details"
+    const val ARCHITECTURE_MAIN_DEEPLINK = "wa://architecture/main"
+    const val HISTORY_MAIN_DEEPLINK = "wa://history/main"
+    const val PAINTING_MAIN_DEEPLINK = "wa://painting/main"
+    const val SCIENCE_MAIN_DEEPLINK = "wa://science/main"
+    const val TRAVEL_MAIN_DEEPLINK = "wa://travel/main"
+    const val CUSTOM_MAIN_DEEPLINK = "wa://custom/main"
+
+    val ARCHITECTURE_NAVIGATION = R.id.architectureMainFragment
+    val HISTORY_NAVIGATION = R.id.architectureMainFragment
+    val PAINTING_NAVIGATION = R.id.architectureMainFragment
+    val SCIENCE_NAVIGATION = R.id.architectureMainFragment
+    val TRAVEL_NAVIGATION = R.id.architectureMainFragment
+    val CUSTOM_NAVIGATION = R.id.architectureMainFragment
 
     fun getDeepLink(artFieldModel: ArtFieldModel) = when (artFieldModel.title) {
         "Architecture" -> {
-            ARCHITECTURE_DEEPLINK
+            ARCHITECTURE_MAIN_DEEPLINK
         }
 
         "History" -> {
-            HISTORY_DEEPLINK
+            HISTORY_MAIN_DEEPLINK
         }
 
         "Painting" -> {
-            PAINTING_DEEPLINK
+            PAINTING_MAIN_DEEPLINK
         }
 
         "Science" -> {
-            SCIENCE_DEEPLINK
+            SCIENCE_MAIN_DEEPLINK
         }
 
         "Travel" -> {
-            TRAVEL_DEEPLINK
+            TRAVEL_MAIN_DEEPLINK
         }
 
         "Custom" -> {
-            CUSTOM_DEEPLINK
+            CUSTOM_MAIN_DEEPLINK
         }
 
         else -> {
-            CUSTOM_DEEPLINK
+            CUSTOM_MAIN_DEEPLINK
+        }
+    }
+
+    fun getNavGraph(artFieldModel: ArtFieldModel) = when (artFieldModel.title) {
+        "Architecture" -> {
+            ARCHITECTURE_NAVIGATION
+        }
+
+        "History" -> {
+            HISTORY_NAVIGATION
+        }
+
+        "Painting" -> {
+            PAINTING_NAVIGATION
+        }
+
+        "Science" -> {
+            SCIENCE_NAVIGATION
+        }
+
+        "Travel" -> {
+            TRAVEL_NAVIGATION
+        }
+
+        "Custom" -> {
+            CUSTOM_NAVIGATION
+        }
+
+        else -> {
+            CUSTOM_NAVIGATION
         }
     }
 }
