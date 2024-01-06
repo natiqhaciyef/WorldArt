@@ -6,8 +6,8 @@ import com.natiqhaciyef.worldart.data.network.config.BaseNetworkResult
 data class AdsNetworkModel(
     @SerializedName("id")
     var id: Int,
-    @SerializedName("ads")
-    var ads: String,
+    @SerializedName("ad")
+    var ad: String,
     @SerializedName("publish_date")
     var publishDate: String
 ): BaseNetworkResult

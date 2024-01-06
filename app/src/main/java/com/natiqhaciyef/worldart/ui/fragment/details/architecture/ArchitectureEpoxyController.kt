@@ -55,7 +55,7 @@ class ArchitectureEpoxyController(
             return
         }
 
-        if (model == null || !model?.archs.isNullOrEmpty() || !model?.ads.isNullOrEmpty()) {
+        if (model == null || model?.archs.isNullOrEmpty() || model?.ads.isNullOrEmpty()) {
             // if null state
             ArchMessageContainerEpoxyModel().id("arch_error_message").addTo(this)
             return
@@ -79,14 +79,16 @@ class ArchitectureEpoxyController(
     ) : ViewBindingKotlinModel<EpoxyArchitectureHeaderViewBinding>(R.layout.epoxy_architecture_header_view) {
         override fun EpoxyArchitectureHeaderViewBinding.bind() {
             val adapter = AdsViewPagerAdapter(context, list)
-
             adsViewPager.adapter = adapter
             val handler = Handler()
-            val runnable = Runnable {
-                adsViewPager.currentItem = (adsViewPager.currentItem + 1) % list.size
+
+            if (list.isNotEmpty()) {
+                val runnable = Runnable {
+                    adsViewPager.currentItem = (adsViewPager.currentItem + 1) % list.size
+                }
+                val delay = 4500L
+                handler.postDelayed(runnable, delay)
             }
-            val delay = 4500L
-            handler.postDelayed(runnable, delay)
         }
     }
 

@@ -7,7 +7,7 @@ import com.natiqhaciyef.worldart.domain.model.UIResult
 
 fun ArchitectureNetworkModel.toUIModel(): UIResult<ArchitectureModel> {
     val architecture = Gson().fromJson(this.arch, ArchitectureModel::class.java)
-    return UIResult<ArchitectureModel>(
+    return UIResult(
         id = this.id,
         data = architecture,
         publishDate = this.publishDate

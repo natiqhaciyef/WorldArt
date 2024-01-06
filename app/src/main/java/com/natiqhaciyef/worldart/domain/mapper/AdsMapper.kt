@@ -6,7 +6,7 @@ import com.natiqhaciyef.worldart.data.model.io.AdsNetworkModel
 import com.natiqhaciyef.worldart.domain.model.UIResult
 
 fun AdsNetworkModel.toUIModel(): UIResult<AdsModel> {
-    val ads = Gson().fromJson(this.ads, AdsModel::class.java)
+    val ads = Gson().fromJson(this.ad, AdsModel::class.java)
     return UIResult(
         id = this.id,
         data = ads,
@@ -18,7 +18,7 @@ fun UIResult<AdsModel>.toNetworkModel(): AdsNetworkModel {
     val ads = Gson().toJson(this.data)
     return AdsNetworkModel(
         id = this.id,
-        ads = ads,
+        ad = ads,
         publishDate = this.publishDate
     )
 }

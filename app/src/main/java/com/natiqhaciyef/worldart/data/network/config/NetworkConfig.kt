@@ -19,6 +19,7 @@ sealed class EndPoints {
 
     data object ArchitectureEndpoint : EndPoints() {
         const val GET = "architecture/get_archs.php$apiResult"
+        const val INSERT = "architecture/insert_arch.php$apiResult"
     }
 
     data object HistoryEndpoint : EndPoints() {
@@ -43,5 +44,6 @@ sealed class EndPoints {
 
     data object AdsEndpoint : EndPoints() {
         const val GET = "ad/get_ads.php$apiResult"
+        const val INSERT = "ad/insert_ad.php$apiResult"
     }
 }
