@@ -3,6 +3,7 @@ package com.natiqhaciyef.worldart.ui.fragment.details.architecture
 import android.content.Context
 import android.os.Handler
 import android.view.View
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.natiqhaciyef.worldart.R
 import com.natiqhaciyef.worldart.common.objects.ErrorMessages
@@ -18,6 +19,12 @@ import com.natiqhaciyef.worldart.ui.adapter.ArchAdapter
 import com.natiqhaciyef.worldart.ui.base.BaseEventController
 import com.natiqhaciyef.worldart.ui.base.ViewBindingKotlinModel
 import com.natiqhaciyef.worldart.ui.fragment.home.HomeEpoxyController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class ArchitectureEpoxyController(
     context: Context,
@@ -48,7 +55,7 @@ class ArchitectureEpoxyController(
             return
         }
 
-        if (model == null) {
+        if (model == null || !model?.archs.isNullOrEmpty() || !model?.ads.isNullOrEmpty()) {
             // if null state
             ArchMessageContainerEpoxyModel().id("arch_error_message").addTo(this)
             return
@@ -58,7 +65,6 @@ class ArchitectureEpoxyController(
             context = context,
             list = model!!.ads
         ).id("arch_header").addTo(this)
-
 
         ArchitectureEpoxyBodyModel(
             context = context,
@@ -110,7 +116,7 @@ class ArchitectureEpoxyController(
         val text: String = ErrorMessages.DATA_NOT_FOUND,
     ) : ViewBindingKotlinModel<EpoxyContainerTextViewBinding>(R.layout.epoxy_container_text_view) {
         override fun EpoxyContainerTextViewBinding.bind() {
-            containerTitle.visibility = View.GONE
+            containerTitle.visibility = View.INVISIBLE
             messageContainerText.text = text
         }
     }

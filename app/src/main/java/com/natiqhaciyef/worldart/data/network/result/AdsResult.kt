@@ -5,6 +5,6 @@ import com.natiqhaciyef.worldart.data.model.io.AdsNetworkModel
 import com.natiqhaciyef.worldart.data.model.io.ArchitectureNetworkModel
 
 data class AdsResult(
-    @SerializedName("ads_table")
+    @SerializedName("ad_table")
     val adsResult: List<AdsNetworkModel>?
 )

@@ -26,22 +26,22 @@ sealed class EndPoints {
     }
 
     data object PaintingEndpoint : EndPoints() {
-        const val GET = "painting/get_paintings.php$$apiResult"
+        const val GET = "painting/get_paintings.php$apiResult"
     }
 
     data object ScienceEndpoint : EndPoints() {
-        const val GET = "science/get_sciences.php$$apiResult"
+        const val GET = "science/get_sciences.php$apiResult"
     }
 
     data object TravelEndpoint : EndPoints() {
-        const val GET = "travel/get_travels.php$$apiResult"
+        const val GET = "travel/get_travels.php$apiResult"
     }
 
     data object PostEndpoint : EndPoints() {
-        const val GET = "post/get_posts.php$$apiResult"
+        const val GET = "post/get_posts.php$apiResult"
     }
 
     data object AdsEndpoint : EndPoints() {
-        const val GET = "ad/get_ads.php$$apiResult"
+        const val GET = "ad/get_ads.php$apiResult"
     }
 }
