@@ -19,4 +19,11 @@ interface AdsService {
         @Field("ad") ad: String,
         @Field("publish_date") publishDate: String,
     ): CRUDResponse
+
+    @POST(AdsEndpoint.DELETE)
+    @FormUrlEncoded
+    suspend fun deleteAd(
+        @Field("id") id: Int,
+    ): CRUDResponse
+
 }

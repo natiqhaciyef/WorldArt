@@ -7,10 +7,14 @@ import com.natiqhaciyef.worldart.data.network.result.CRUDResponse
 import com.natiqhaciyef.worldart.domain.base.BaseRepository
 import com.natiqhaciyef.worldart.domain.model.UIResult
 
-interface ArchitectureRepository: BaseRepository {
+interface ArchitectureRepository : BaseRepository {
 
     suspend fun getAllArchitectures(): List<UIResult<ArchitectureModel>>?
 
     suspend fun insertArchitecture(architectureNetworkModel: ArchitectureNetworkModel): CRUDResponse
+
+    suspend fun updateArchitecture(architectureNetworkModel: ArchitectureNetworkModel): CRUDResponse
+
+    suspend fun deleteArchitecture(id: Int): CRUDResponse
 
 }

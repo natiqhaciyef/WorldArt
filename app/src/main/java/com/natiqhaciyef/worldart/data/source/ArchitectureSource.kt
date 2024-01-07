@@ -21,4 +21,18 @@ class ArchitectureSource(
                 publishDate = archNetworkModel.publishDate
             )
         }
+
+    suspend fun updateArchitecturesRemote(archNetworkModel: ArchitectureNetworkModel) =
+        withContext(Dispatchers.IO) {
+            service.updateArchitecture(
+                id = archNetworkModel.id,
+                arch = archNetworkModel.arch,
+                publishDate = archNetworkModel.publishDate
+            )
+        }
+
+    suspend fun deleteArchitecturesRemote(id: Int) =
+        withContext(Dispatchers.IO) {
+            service.deleteArchitecture(id = id)
+        }
 }

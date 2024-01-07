@@ -19,4 +19,8 @@ class AdRepositoryImpl(
     override suspend fun insertAd(adsNetworkModel: AdsNetworkModel): CRUDResponse {
         return ds.insertAd(adsNetworkModel)
     }
+
+    override suspend fun deleteAd(id: Int): CRUDResponse {
+        return ds.deleteAd(id)
+    }
 }

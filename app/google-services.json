@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "250911257591",
-    "project_id": "worldart-9336a",
-    "storage_bucket": "worldart-9336a.appspot.com"
+    "project_number": "895751385165",
+    "project_id": "world-art-941ae",
+    "storage_bucket": "world-art-941ae.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:250911257591:android:6090337351c8e68c6a34f2",
+        "mobilesdk_app_id": "1:895751385165:android:8ef1eda1748982c3886c04",
         "android_client_info": {
           "package_name": "com.natiqhaciyef.worldart"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCc_NUUWMIkqadfqaTKJ3rJr5G04Vcl9WE"
+          "current_key": "AIzaSyDKzMFWSJzFUlZbXG-MNHPw4vKF_OxGam0"
         }
       ],
       "services": {

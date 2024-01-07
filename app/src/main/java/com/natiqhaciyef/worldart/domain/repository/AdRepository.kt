@@ -12,4 +12,6 @@ interface AdRepository: BaseRepository {
     suspend fun getAllAds(): List<UIResult<AdsModel>>?
 
     suspend fun insertAd(adsNetworkModel: AdsNetworkModel): CRUDResponse
+
+    suspend fun deleteAd(id: Int): CRUDResponse
 }

@@ -18,4 +18,12 @@ class ArchitectureRepositoryImpl(
     override suspend fun insertArchitecture(architectureNetworkModel: ArchitectureNetworkModel): CRUDResponse {
         return ds.insertArchitecturesRemote(architectureNetworkModel)
     }
+
+    override suspend fun updateArchitecture(architectureNetworkModel: ArchitectureNetworkModel): CRUDResponse {
+        return ds.updateArchitecturesRemote(architectureNetworkModel)
+    }
+
+    override suspend fun deleteArchitecture(id: Int): CRUDResponse {
+        return ds.deleteArchitecturesRemote(id)
+    }
 }

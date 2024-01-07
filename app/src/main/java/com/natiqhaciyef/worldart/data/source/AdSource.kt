@@ -19,4 +19,8 @@ class AdSource(
             publishDate = adsNetworkModel.publishDate
         )
     }
+
+    suspend fun deleteAd(id: Int) = withContext(Dispatchers.IO) {
+        service.deleteAd(id = id)
+    }
 }

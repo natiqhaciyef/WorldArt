@@ -19,4 +19,18 @@ interface ArchService {
         @Field("architecture") arch: String,
         @Field("publish_date") publishDate: String,
     ): CRUDResponse
+
+    @POST(ArchitectureEndpoint.UPDATE)
+    @FormUrlEncoded
+    suspend fun updateArchitecture(
+        @Field("id") id: Int,
+        @Field("architecture") arch: String,
+        @Field("publish_date") publishDate: String,
+    ): CRUDResponse
+
+    @POST(ArchitectureEndpoint.DELETE)
+    @FormUrlEncoded
+    suspend fun deleteArchitecture(
+        @Field("id") id: Int,
+    ): CRUDResponse
 }

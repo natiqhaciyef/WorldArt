@@ -23,7 +23,7 @@ class InsertAdRemoteUseCase @Inject constructor(
         if (result.success > 0) {
             emit(Resource.success(ConfigUseCase.INSERT_SUCCESS))
         } else {
-            emit(Resource.error(ConfigUseCase.INSERT_FAIL, null))
+            emit(Resource.error(ConfigUseCase.INSERT_FAIL, result.message))
         }
     }
 
