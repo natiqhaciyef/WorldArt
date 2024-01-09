@@ -1,5 +1,7 @@
 package com.natiqhaciyef.worldart.ui.fragment.admin
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.natiqhaciyef.worldart.common.classes.Status
 import com.natiqhaciyef.worldart.common.helpers.getNow
@@ -12,7 +14,11 @@ import com.natiqhaciyef.worldart.data.model.enums.AdCategories
 import com.natiqhaciyef.worldart.data.model.enums.ArtField
 import com.natiqhaciyef.worldart.domain.model.UIResult
 import com.natiqhaciyef.worldart.domain.usecase.ad.InsertAdRemoteUseCase
+import com.natiqhaciyef.worldart.domain.usecase.ad.RemoveAdRemoteUseCase
 import com.natiqhaciyef.worldart.domain.usecase.arch.InsertArchitectureRemoteUseCase
+import com.natiqhaciyef.worldart.domain.usecase.arch.RemoveArchRemoteUseCase
+import com.natiqhaciyef.worldart.domain.usecase.arch.UpdateArchRemoteUseCase
+import com.natiqhaciyef.worldart.ui.base.BaseUIState
 import com.natiqhaciyef.worldart.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -23,51 +29,257 @@ import javax.inject.Inject
 class AdminViewModel @Inject constructor(
     private val insertAdRemoteUseCase: InsertAdRemoteUseCase,
     private val insertArchitectureRemoteUseCase: InsertArchitectureRemoteUseCase,
+    private val updateArchRemoteUseCase: UpdateArchRemoteUseCase,
+    private val removeArchRemoteUseCase: RemoveArchRemoteUseCase,
+    private val removeAdRemoteUseCase: RemoveAdRemoteUseCase,
 ) : BaseViewModel() {
+    private val _state = MutableLiveData<BaseUIState<String>>(BaseUIState())
+    val state: LiveData<BaseUIState<String>>
+        get() = _state
 
-    fun insertAd(adsModel: AdsModel = adModel){
+
+    fun insertAd(adsModel: AdsModel = adModel) {
         viewModelScope.launch {
-            insertAdRemoteUseCase.invoke(UIResult(
-                id = 0,
-                data = adsModel,
-                publishDate = getNow()
-            )).collectLatest { result ->
-                when(result.status){
+            insertAdRemoteUseCase.invoke(
+                UIResult(
+                    id = 0,
+                    data = adsModel,
+                    publishDate = getNow()
+                )
+            ).collectLatest { result ->
+                when (result.status) {
                     Status.SUCCESS -> {
-                        println("${result.data} Ads")
+                        _state.value = _state.value?.copy(
+                            data = "${result.data} Ads",
+                            isFail = false,
+                            isFailMessage = null,
+                            isFailReason = null,
+                            isSuccess = true,
+                            isSuccessMessage = result.message,
+                            isLoading = false
+                        )
                     }
+
                     Status.ERROR -> {
-                        println("${result.message} Ads")
+                        _state.value = _state.value?.copy(
+                            data = "${result.data} Ads",
+                            isFail = true,
+                            isFailMessage = result.message,
+                            isFailReason = Exception(result.data),
+                            isSuccess = false,
+                            isSuccessMessage = null,
+                            isLoading = false
+                        )
                     }
-                    Status.LOADING -> {}
+
+                    Status.LOADING -> {
+                        _state.value = _state.value?.copy(
+                            data = null,
+                            isFail = false,
+                            isFailMessage = null,
+                            isFailReason = null,
+                            isSuccess = false,
+                            isSuccessMessage = null,
+                            isLoading = true
+                        )
+                    }
                 }
             }
         }
     }
 
-
-
-    fun insertArch(archModel: ArchitectureModel = architectureModel){
+    fun insertArch(archModel: ArchitectureModel = architectureModel) {
         viewModelScope.launch {
-            insertArchitectureRemoteUseCase.invoke(UIResult(
-                id = 0,
-                data = archModel,
-                publishDate = getNow()
-            )).collectLatest { result ->
-                when(result.status){
+            insertArchitectureRemoteUseCase.invoke(
+                UIResult(
+                    id = 0,
+                    data = archModel,
+                    publishDate = getNow()
+                )
+            ).collectLatest { result ->
+                when (result.status) {
                     Status.SUCCESS -> {
-                        println("${result.data} Arch")
+                        _state.value = _state.value?.copy(
+                            data = "${result.data} Arch",
+                            isFail = false,
+                            isFailMessage = null,
+                            isFailReason = null,
+                            isSuccess = true,
+                            isSuccessMessage = result.message,
+                            isLoading = false
+                        )
                     }
+
                     Status.ERROR -> {
-                        println("${result.message} Arch")
+                        _state.value = _state.value?.copy(
+                            data = "${result.data} Arch",
+                            isFail = true,
+                            isFailMessage = result.message,
+                            isFailReason = Exception(result.data),
+                            isSuccess = false,
+                            isSuccessMessage = null,
+                            isLoading = false
+                        )
                     }
-                    Status.LOADING -> {}
+
+                    Status.LOADING -> {
+                        _state.value = _state.value?.copy(
+                            data = null,
+                            isFail = false,
+                            isFailMessage = null,
+                            isFailReason = null,
+                            isSuccess = false,
+                            isSuccessMessage = null,
+                            isLoading = true
+                        )
+                    }
                 }
             }
         }
     }
 
-    companion object{
+    fun updateArch(archUIResult: UIResult<ArchitectureModel>) {
+        viewModelScope.launch {
+            updateArchRemoteUseCase.invoke(
+                UIResult(
+                    id = archUIResult.id,
+                    data = archUIResult.data,
+                    publishDate = archUIResult.publishDate
+                )
+            ).collectLatest { result ->
+                when (result.status) {
+                    Status.SUCCESS -> {
+                        _state.value = _state.value?.copy(
+                            data = "${result.data} Arch",
+                            isFail = false,
+                            isFailMessage = null,
+                            isFailReason = null,
+                            isSuccess = true,
+                            isSuccessMessage = result.message,
+                            isLoading = false
+                        )
+                    }
+
+                    Status.ERROR -> {
+                        _state.value = _state.value?.copy(
+                            data = "${result.data} Arch",
+                            isFail = true,
+                            isFailMessage = result.message,
+                            isFailReason = Exception(result.data),
+                            isSuccess = false,
+                            isSuccessMessage = null,
+                            isLoading = false
+                        )
+                    }
+
+                    Status.LOADING -> {
+                        _state.value = _state.value?.copy(
+                            data = null,
+                            isFail = false,
+                            isFailMessage = null,
+                            isFailReason = null,
+                            isSuccess = false,
+                            isSuccessMessage = null,
+                            isLoading = true
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    fun removeArch(id: Int) {
+        viewModelScope.launch {
+            removeArchRemoteUseCase.invoke(id).collectLatest { result ->
+                when (result.status) {
+                    Status.SUCCESS -> {
+                        _state.value = _state.value?.copy(
+                            data = "${result.data} Arch",
+                            isFail = false,
+                            isFailMessage = null,
+                            isFailReason = null,
+                            isSuccess = true,
+                            isSuccessMessage = result.message,
+                            isLoading = false
+                        )
+                    }
+
+                    Status.ERROR -> {
+                        _state.value = _state.value?.copy(
+                            data = "${result.data} Arch",
+                            isFail = true,
+                            isFailMessage = result.message,
+                            isFailReason = Exception(result.data),
+                            isSuccess = false,
+                            isSuccessMessage = null,
+                            isLoading = false
+                        )
+                    }
+
+                    Status.LOADING -> {
+                        _state.value = _state.value?.copy(
+                            data = null,
+                            isFail = false,
+                            isFailMessage = null,
+                            isFailReason = null,
+                            isSuccess = false,
+                            isSuccessMessage = null,
+                            isLoading = true
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    fun removeAd(id: Int) {
+        viewModelScope.launch {
+            viewModelScope.launch {
+                removeAdRemoteUseCase.invoke(id).collectLatest { result ->
+                    when (result.status) {
+                        Status.SUCCESS -> {
+                            _state.value = _state.value?.copy(
+                                data = "${result.data} Ad",
+                                isFail = false,
+                                isFailMessage = null,
+                                isFailReason = null,
+                                isSuccess = true,
+                                isSuccessMessage = result.message,
+                                isLoading = false
+                            )
+                        }
+
+                        Status.ERROR -> {
+                            _state.value = _state.value?.copy(
+                                data = "${result.data} Ad",
+                                isFail = true,
+                                isFailMessage = result.message,
+                                isFailReason = Exception(result.data),
+                                isSuccess = false,
+                                isSuccessMessage = null,
+                                isLoading = false
+                            )
+                        }
+
+                        Status.LOADING -> {
+                            _state.value = _state.value?.copy(
+                                data = null,
+                                isFail = false,
+                                isFailMessage = null,
+                                isFailReason = null,
+                                isSuccess = false,
+                                isSuccessMessage = null,
+                                isLoading = true
+                            )
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    companion object {
         val adModel = AdsModel(
             title = "Stay fit",
             image = "https://t4.ftcdn.net/jpg/03/89/92/27/360_F_389922799_AZFyYZguDeEMoUdoROgEiJqfDPih1S12.jpg",
