@@ -6,9 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.natiqhaciyef.worldart.data.model.ArchitectureModel
-import com.natiqhaciyef.worldart.databinding.RecyclerArchItemBinding
+import com.natiqhaciyef.worldart.databinding.RecyclerDetailItemBinding
 import com.natiqhaciyef.worldart.domain.model.UIResult
-import com.natiqhaciyef.worldart.ui.fragment.details.architecture.ArchitectureViewModel
 
 class ArchAdapter(
     private val context: Context,
@@ -17,12 +16,12 @@ class ArchAdapter(
 
     private var archPostClickAction: (UIResult<ArchitectureModel>) -> Unit = {}
 
-    inner class ArchViewHolder(val binding: RecyclerArchItemBinding) :
+    inner class ArchViewHolder(val binding: RecyclerDetailItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArchViewHolder {
         val binding =
-            RecyclerArchItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            RecyclerDetailItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ArchViewHolder(binding)
     }
 

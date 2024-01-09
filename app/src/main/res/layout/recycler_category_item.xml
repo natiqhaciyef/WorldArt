@@ -8,6 +8,7 @@
     android:padding="5dp">
 
     <TextView
+        android:id="@+id/categoryTitle"
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:gravity="center"

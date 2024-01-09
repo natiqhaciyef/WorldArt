@@ -9,4 +9,5 @@ data class HistoryModel(
     var title: String,
     var details: String,
     var belongs: String,
+    var image: String
 ) : Parcelable

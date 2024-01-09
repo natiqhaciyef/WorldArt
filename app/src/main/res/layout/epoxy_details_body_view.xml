@@ -4,30 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/architectureTitle"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginTop="20dp"
-        android:paddingHorizontal="5dp"
-        android:paddingVertical="15dp"
-        android:text="@string/art_of_architecture"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:fontFamily="@font/lobster"
-        android:textStyle="bold"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/adsViewPager"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/detailsPostsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/architectureTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/categoriesRecyclerView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
