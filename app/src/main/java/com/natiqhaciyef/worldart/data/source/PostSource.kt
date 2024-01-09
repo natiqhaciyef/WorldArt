@@ -8,7 +8,7 @@ class PostSource(
     private val service: PostService
 ) {
 
-    suspend fun getAllPosts() = withContext(Dispatchers.IO) {
+    suspend fun getAllPostsRemote() = withContext(Dispatchers.IO) {
         service.getAllPosts()
     }
 

@@ -8,7 +8,7 @@ class ScienceSource(
     private val service: ScienceService
 ) {
 
-    suspend fun getAllSciences() = withContext(Dispatchers.IO) {
+    suspend fun getAllSciencesRemote() = withContext(Dispatchers.IO) {
         service.getAllSciences()
     }
 }

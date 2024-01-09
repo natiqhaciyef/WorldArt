@@ -1,5 +1,6 @@
 package com.natiqhaciyef.worldart.data.source
 
+import com.natiqhaciyef.worldart.data.local.dao.ArchDao
 import com.natiqhaciyef.worldart.data.model.io.AdsNetworkModel
 import com.natiqhaciyef.worldart.data.model.io.ArchitectureNetworkModel
 import com.natiqhaciyef.worldart.data.network.service.ArchService
@@ -8,6 +9,7 @@ import kotlinx.coroutines.withContext
 
 class ArchitectureSource(
     private val service: ArchService,
+    private val dao: ArchDao
 ) {
 
     suspend fun getAllArchitecturesRemote() = withContext(Dispatchers.IO) {
@@ -35,4 +37,6 @@ class ArchitectureSource(
         withContext(Dispatchers.IO) {
             service.deleteArchitecture(id = id)
         }
+
+    suspend fun
 }

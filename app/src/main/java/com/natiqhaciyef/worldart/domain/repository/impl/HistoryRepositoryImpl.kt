@@ -10,6 +10,6 @@ class HistoryRepositoryImpl(
     private val ds: HistorySource
 ) : HistoryRepository {
     override suspend fun getAllHistories(): List<UIResult<HistoryModel>>? {
-        return ds.getAllHistories().archResult?.map { it.toUIModel() }
+        return ds.getAllHistoriesRemote().archResult?.map { it.toUIModel() }
     }
 }

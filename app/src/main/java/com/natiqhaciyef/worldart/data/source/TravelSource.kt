@@ -8,7 +8,7 @@ class TravelSource(
     private val service: TravelService
 ) {
 
-    suspend fun getAllTravels() = withContext(Dispatchers.IO) {
+    suspend fun getAllTravelsRemote() = withContext(Dispatchers.IO) {
         service.getAllTravels()
     }
 }

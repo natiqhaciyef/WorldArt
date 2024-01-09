@@ -8,7 +8,7 @@ class PaintingSource(
     private val service: PaintingService
 ) {
 
-    suspend fun getAllPaintings() = withContext(Dispatchers.IO) {
+    suspend fun getAllPaintingsRemote() = withContext(Dispatchers.IO) {
         service.getAllPaintings()
     }
 }

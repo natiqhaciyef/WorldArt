@@ -10,6 +10,6 @@ class ScienceRepositoryImpl(
     private val ds: ScienceSource
 ): ScienceRepository {
     override suspend fun getAllSciences(): List<UIResult<ScienceModel>>? {
-        return ds.getAllSciences().archResult?.map { it.toUIModel() }
+        return ds.getAllSciencesRemote().archResult?.map { it.toUIModel() }
     }
 }

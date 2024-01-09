@@ -10,6 +10,6 @@ class PaintingRepositoryImpl(
     private val ds: PaintingSource
 ): PaintingRepository {
     override suspend fun getAllPaintings(): List<UIResult<PaintingModel>>? {
-        return ds.getAllPaintings().archResult?.map { it.toUIModel() }
+        return ds.getAllPaintingsRemote().archResult?.map { it.toUIModel() }
     }
 }

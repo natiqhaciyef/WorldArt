@@ -10,6 +10,6 @@ class TravelRepositoryImpl(
     private val ds: TravelSource
 ) : TravelRepository {
     override suspend fun getAllTravels(): List<UIResult<TravelModel>>? {
-        return ds.getAllTravels().archResult?.map { it.toUIModel() }
+        return ds.getAllTravelsRemote().archResult?.map { it.toUIModel() }
     }
 }
